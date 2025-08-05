@@ -1,0 +1,66 @@
+# TO GET THE OAuth LOGIN
+Step-by-Step: Get Your Google OAuth Client Secrets File
+1. Go to the Google Cloud Console
+Visit https://console.cloud.google.com and log in with your Google account.
+
+2. Create or Select an Existing Project
+At the top, click on the project drop-down and select an existing project or click "New Project" to create one.
+
+Give it a name and (optionally) select an organization.
+
+3. Enable the Google Drive API
+In your project, search for "APIs & Services" > "Library".
+
+Search for “Google Drive API” and click on it.
+
+Click “Enable”.
+
+4. Create OAuth Consent Screen
+Go to "APIs & Services" > "OAuth consent screen".
+
+Choose "External" or "Internal" user type, depending on your needs.
+
+Fill in the required fields (App name, user support email, developer contact email).
+
+In "Scopes", add .../auth/drive.file (drive access limited to files your app creates/opens).
+
+In "Test Users", add the Gmail addresses you’ll use for testing (if app type is "External" and app not published).
+
+5. Create OAuth 2.0 Client ID
+Go to "APIs & Services" > "Credentials".
+
+Click “Create Credentials” > “OAuth client ID”.
+
+Choose "Desktop app" as the application type (for development/testing with local Streamlit apps).
+
+If you're deploying on the web, select "Web application" and fill in "Authorized redirect URIs" (e.g., http://localhost:8501/, http://127.0.0.1:8080/).
+
+Give it a name and create.
+
+6. Download the Client Secret JSON
+After creation, you’ll see your client listed. Click the download icon to download the client_secret_....json file.
+
+This file will often be named like client_secret_XXXXX.apps.googleusercontent.com.json.
+
+Save it in the same directory as your code (or reference its path correctly).
+
+7. Use the File in Your Code
+
+
+#HOW DO I GET GOOGLE FOLDER ID
+1. Open your Diserd Google folder
+
+2. Copy the last part of the URL, e.g.:
+
+    https://drive.google.com/drive/folders/1abcDefGHIjKLmNopQRstuVWxyZ
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+                                            This is your Folder ID
+3. Add Folder ID in Your Code
+    In your app, find this line:
+        GOOGLE_DRIVE_FOLDER_ID = 'your_drive_folder_id_here'
+
+#TO RUN STREAMLIT App
+1. install all the depencies in the requiremnets.txt file
+2. In terminal go to the folder where your streamlit app is located app.py(In this project Registration.py).
+3. run following command to run your streamlit app:
+    streamlit run yourapp.py(Registration.py)
